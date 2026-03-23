@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typhoon Survival Kit Builder</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success custom-nav">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="index.html">PH PrepHub</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="checklist.html">Kit Builder</a></li>
+                        <li class="nav-item"><a class="nav-link" href="hotlines.html">Hotlines</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <div class="text-center mb-5">
+            <h1 class="fw-bold">Build Your Go-Bag</h1>
+            <p class="text-muted">Check off items as you pack them. Aim for 100% readiness.</p>
+        </div>
+
+        <div class="sticky-top bg-white py-3 shadow-sm mb-4 rounded px-3" style="z-index: 1020;">
+            <div class="d-flex justify-content-between mb-1">
+                <span class="fw-bold">Readiness Score</span>
+                <span id="score-text" class="fw-bold text-success">0%</span>
+            </div>
+            <div class="progress" style="height: 25px;">
+                <div id="progress-bar" class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%;"></div>
+            </div>
+        </div>
+
+        <div class="row g-4" id="checklist-container">
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 custom-card shadow-sm">
+                    <div class="card-header bg-dark text-white fw-bold">Essentials</div>
+                    <ul class="list-group list-group-flush kit-list">
+                        <li class="list-group-item">
+                            <input class="form-check-input me-2 kit-item" type="checkbox" value="water" id="item1">
+                            <label class="form-check-label" for="item1">Water (1 Gal/person/day)</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-2 kit-item" type="checkbox" value="food" id="item2">
+                            <label class="form-check-label" for="item2">Non-perishable Food (3 days)</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-2 kit-item" type="checkbox" value="flashlight" id="item3">
+                            <label class="form-check-label" for="item3">Flashlight & Extra Batteries</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 custom-card shadow-sm">
+                    <div class="card-header bg-danger text-white fw-bold">First Aid & Health</div>
+                    <ul class="list-group list-group-flush kit-list">
+                        <li class="list-group-item">
+                            <input class="form-check-input me-2 kit-item" type="checkbox" value="medkit" id="item4">
+                            <label class="form-check-label" for="item4">Basic First Aid Kit</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-2 kit-item" type="checkbox" value="meds" id="item5">
+                            <label class="form-check-label" for="item5">Prescription Medications</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-2 kit-item" type="checkbox" value="hygiene" id="item6">
+                            <label class="form-check-label" for="item6">Sanitation/Hygiene Items</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 custom-card shadow-sm">
+                    <div class="card-header bg-primary text-white fw-bold">Comms & Docs</div>
+                    <ul class="list-group list-group-flush kit-list">
+                        <li class="list-group-item">
+                            <input class="form-check-input me-2 kit-item" type="checkbox" value="powerbank" id="item7">
+                            <label class="form-check-label" for="item7">Fully Charged Powerbank</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-2 kit-item" type="checkbox" value="radio" id="item8">
+                            <label class="form-check-label" for="item8">Battery-powered Radio</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-2 kit-item" type="checkbox" value="docs" id="item9">
+                            <label class="form-check-label" for="item9">Important IDs in Waterproof Bag</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <button class="btn btn-success btn-lg px-5" data-bs-toggle="modal" data-bs-target="#saveModal">Save My Kit Status</button>
+        </div>
+    </main>
+
+    <div class="modal fade" id="saveModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Save Progress</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Enter your email to save your kit readiness score to our database.</p>
+                    <input type="email" id="userEmail" class="form-control" placeholder="juan@delasalle.ph">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" onclick="saveToDatabase()">Save to Cloud</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

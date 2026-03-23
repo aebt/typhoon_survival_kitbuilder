@@ -1,0 +1,35 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.custom-nav {
+    background-color: #006633 !important; 
+}
+
+.custom-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.custom-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.list-group-item {
+    transition: background-color 0.2s ease;
+}
+
+.list-group-item:hover {
+    background-color: #f1f8f5;
+}
+
+.hero-section {
+    /* Adds the dark tint over the image so your white text is readable */
+    background-image: linear-gradient(rgba(0, 50, 20, 0.8), rgba(0, 50, 20, 0.8)), url('assets/hero-bg.png');
+    background-size: cover;
+    background-position: center;
+}
