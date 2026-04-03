@@ -1,4 +1,4 @@
-// --- 1. DOM MANIPULATION & INTERACTIVITY (The Progress Bar) ---
+// Progress Bar
 document.addEventListener("DOMContentLoaded", () => {
     const checkboxes = document.querySelectorAll('.kit-item');
     const progressBar = document.getElementById('progress-bar');
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// --- 2. DATA PERSISTENCE (Supabase Integration) ---
+// Supabase Integration
 async function saveToDatabase() {
     const email = document.getElementById('userEmail').value;
     const scoreText = document.getElementById('score-text').innerText;
@@ -42,7 +42,6 @@ async function saveToDatabase() {
         return;
     }
 
-    // --- YOUR SUPABASE CREDENTIALS ---
     const SUPABASE_URL = 'https://okaobcxrekblsrqerxye.supabase.co'; 
     const SUPABASE_ANON_KEY = 'sb_publishable_5CsjwCGdd-tklDvTQIYuFg_39bnC0D_';
 
