@@ -37,8 +37,14 @@ async function saveToDatabase() {
     // Clean the score data: remove the '%' and convert to a clean integer for the database
     const score = parseInt(scoreText.replace('%', ''));
 
+    // Email format validation using Regular Expression (RegEx)
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     if (!email) {
-        alert("Please enter a valid email to save.");
+        alert("Please enter an email address to save.");
+        return;
+    } else if (!emailPattern.test(email)) {
+        alert("Please enter a proper email format (e.g., juan@dlsu.edu.ph).");
         return;
     }
 
